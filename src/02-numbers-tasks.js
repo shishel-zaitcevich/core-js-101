@@ -227,9 +227,9 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  const num = parseInt(value, 10);
-  if (Number.isInteger(num)) {
-    return num;
+  const number = parseInt(value, 10);
+  if (Number.isInteger(number)) {
+    return number;
   }
   return def;
 }
