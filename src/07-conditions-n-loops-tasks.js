@@ -135,26 +135,26 @@ function isTriangle(a, b, c) {
 function doRectanglesOverlap(rect1, rect2) {
   // if rectangle has area 0, no overlap
   if (
-    rect1.width === 0
-    || rect1.height === 0
-    || rect2.width === 0
-    || rect2.height === 0
+    rect1.width === 0 ||
+    rect1.height === 0 ||
+    rect2.width === 0 ||
+    rect2.height === 0
   ) {
     return false;
   }
 
   // If one rectangle is on left side of other
   if (
-    rect1.top > rect2.width + rect2.top
-    || rect2.top > rect1.top + rect1.width
+    rect1.top > rect2.width + rect2.top ||
+    rect2.top > rect1.top + rect1.width
   ) {
     return false;
   }
 
   // If one rectangle is above other
   if (
-    rect2.left > rect1.left + rect1.height
-    || rect1.left > rect2.left + rect2.height
+    rect2.left > rect1.left + rect1.height ||
+    rect1.left > rect2.left + rect2.height
   ) {
     return false;
   }
@@ -190,8 +190,8 @@ function doRectanglesOverlap(rect1, rect2) {
  */
 function isInsideCircle(circle, point) {
   if (
-    circle.radius ** 2
-    > (circle.center.x - point.x) ** 2 + (circle.center.y - point.y) ** 2
+    circle.radius ** 2 >
+    (circle.center.x - point.x) ** 2 + (circle.center.y - point.y) ** 2
   ) {
     return true;
   }
@@ -280,9 +280,10 @@ function reverseString(str) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
-  return num < 0
-    ? -Math.abs(num).split('').reverse().join('')
-    : +num.toString().split('').reverse().join('');
+  if (num < 0) {
+    return -Math.abs(num).split('').reverse().join('');
+  }
+  return +num.toString().split('').reverse().join('');
 }
 
 /**
